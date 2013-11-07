@@ -1,6 +1,8 @@
 This is our README file.
 
-Team: Brian Gathright, Salman Khan, Shell Yan
+##Team
+  [Brian Gathright](https://github.com/briangathright), Salman Khan, [Shell Yan](https://github.com/shellyan/)
 
-Our Trello page is at https://trello.com/b/DOC7ONim/chatroom.
+##Trello page
+  https://trello.com/b/DOC7ONim/chatroom.
 
