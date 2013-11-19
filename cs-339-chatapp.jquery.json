@@ -1,0 +1,26 @@
+{
+  "name": "cs-339-chatapp",
+  "title": "Cs 339 Chatapp",
+  "description": "The best jQuery plugin ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/shellyan/cs-339-chatapp",
+  "author": {
+    "name": "Brian Gathright, Salman Khan, Shell Yan",
+    "url": "shellyan.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:shellyan/cs-339-chatapp.git"
+  },
+  "bugs": "https://github.com/shellyan/cs-339-chatapp/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shellyan/cs-339-chatapp/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}
