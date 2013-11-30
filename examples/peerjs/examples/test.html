@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+<title>PeerJS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+	var conn;
+	var peer = new Peer({key: 'eoxaoedeubdtpgb9'});
+	peer.on('open',function(id){
+		$('#pid').text(id);
+	});
+	peer.on('connection',connect);
+	function connect(c){
+		$('#rid').val(conn.peer);
+		$('#rid').prop('disabled',true);
+	}
+	
+	$(document).ready(function(){
+	
+	$('#connect').click(function() {
+		requestedPeer = $('#rid').val();
+     var c = peer.connect(requestedPeer, {
+        label: 'chat',
+        serialization: 'none',
+        metadata: {message: 'hi i want to chat with you!', name: $('#nick').val()}
+      });
+      c.on('open', function() {
+        connect(c);
+      });
+      c.on('error', function(err) { alert(err); });
+    })
+    
+  });
+});
+	
+	
+</script>
+
+<h2 style="margin-left: 30%;"> Live Edit with WebRTC</h2>
+Your PeerJS id is : <span id="pid"></span><br><br>
+Connect to peer: <input type="text" id="rid" placeholder="Someone else's id">
+                 <input type="button" value="Connect" id="connect">
+				 <input type="button" value="Disconnect" id="disconnect">
+				 <br><br>
+<textarea id="inputText" rows="30" style="width:45%; margin-left: 20%;"></textarea>
+</body>
+
+
+</html>
