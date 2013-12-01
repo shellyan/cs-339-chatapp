@@ -19,7 +19,7 @@ peer.on('connection', connect);
 // Connects our peers
 function connect(c) {
     conn = c;
-    $('#container').append('<br> Now chatting with ' + conn.peer);
+    $('#container').append('Now chatting with ' + conn.peer);
     
 	notifyOthers(c.peer);
 	updateConns(conn);
@@ -61,7 +61,6 @@ function connect(c) {
 	for(var i = 0; i < allConns.length; i++)
 	{
 		allConns[i].send("/add " + peer);
-		allConns[i].send("please add " + peer);
 	}
  }
  
