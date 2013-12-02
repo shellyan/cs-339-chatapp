@@ -8,7 +8,8 @@ var allConns = new Array();
 var allPeers = new Array();
 
 // Connect to PeerJS, server assigns ID
-var peer = new Peer({key: 'lwjd5qra8257b9', debug: true});
+//var peer = new Peer({key: 'lwjd5qra8257b9', debug: true});
+var peer = new Peer({host: '10.23.54.117', port: 49445, debug: true});  
 		peer.on('open', function(id){
 		$('#pid').text(id);
 		allPeers.push(id);
