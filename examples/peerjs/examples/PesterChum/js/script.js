@@ -1,16 +1,20 @@
+/* 
+This is the javascript used in conjunction with index.html and style.css
+*/
+
+
 var conn;
-var username = "<span class = 'username' =>You: </span>";
+var username = "<span class = 'username' =>You: </span>"; //your 'name; output to screen next to your messages
 
 var allConns = new Array();
 var allPeers = new Array();
 
-var othername;
-
-// Connect to PeerJS, have server assign an ID instead of providing one
+// Connect to PeerJS, server assigns ID
 var peer = new Peer({key: 'lwjd5qra8257b9', debug: true});
 		peer.on('open', function(id){
 		$('#pid').text(id);
 		allPeers.push(id);
+		updateConns();
   });  
 
 // Await connections from others
@@ -19,12 +23,12 @@ peer.on('connection', connect);
 // Connects our peers
 function connect(c) {
     conn = c;
-    $('#container').append('Now chatting with ' + conn.peer);
+    $('#container').append('Now chatting with ' + conn.peer + '<br>');
     
 	notifyOthers(c.peer);
-	updateConns(conn);
+	addConns(conn);
 	
-	othername = "<span class = 'othername' =>" + conn.peer + ": </span>";
+	var othername = "<span class = 'othername' => <font color=\"green\">" + conn.peer + ":</font> </span>";
 	
 	//when you get data
 	conn.on('data', function(data){
@@ -33,14 +37,16 @@ function connect(c) {
 	{
 			var array = data.split(" ");
 			data = array[1];
-			$('#container').append('<br>' + othername + ' changed name to ' + data + '.'); 
-			othername = "<span class = 'othername' =>" + data + ": </span>";
+			$('#container').append(othername + ' changed name to ' + data + '. <br>'); 
+			othername = "<span class = 'othername' => <font color=\"green\">" + data + ":</font> </span>";
+			
 	}
 	  else if(data.indexOf("/add") === 0)
 	  {
 		var array = data.split(" ");
 		data = array[1];
 		console.log(data);
+		
 		if($.inArray(data, allPeers) === -1) {
 			c = peer.connect(data);
 			connect(c);
@@ -48,15 +54,23 @@ function connect(c) {
 	  }
 	  else
 	  {
-		$('#container').append('<br>' + othername + ' ' + data);
+		$('#container').append(othername + ' ' + data + '<br>');
 		$("#container").scrollTop($("#container").prop("scrollHeight"));
 	  }
     });
 	//when someone leaves
-    conn.on('close', function(err){ alert(conn.peer + ' has left the chat.') });
+    conn.on('close', function(err){ 
+	removeConns(conn);
+	$('#container').append(conn.peer + 'has left the chat.<br>');
+	});
  }
 
- //
+ function processCommand(command, data){
+	
+ }
+ 
+ 
+ //tells others to add to call.
  function notifyOthers(peer) {
 	for(var i = 0; i < allConns.length; i++)
 	{
@@ -64,13 +78,31 @@ function connect(c) {
 	}
  }
  
- //updates internal and UI elements of peers
- function updateConns(c) {
+ //adds a peer + conn
+ function addConns(c) {
 	//console.log($.inArray(c, allConns));
 	if($.inArray(c.peer, allPeers) === -1) {
 		allConns.push(c);
 		allPeers.push(c.peer);
-		$('#connections').append('<br>' + c.peer);
+		updateConns();
+	}
+}
+ 
+ //removes a peer
+ function removeConns(c) {
+	var index = allPeers.indexOf(c.peer);
+	if(index!=-1){
+		allPeers.splice(index, 1);
+		updateConns();
+	}
+ }
+ 
+ //updates UI
+ function updateConns() {
+	$('#connections').empty();
+	$('#connections').append('Peers in Chat');
+	for(var i = 0; i < allPeers.length; i++) {
+		$('#connections').append('<br>' + allPeers[i]);
 	}
  }
  
@@ -104,7 +136,7 @@ $(document).ready(function() {
 	  }
 	  else
 	  {
-			$('#container').append('<br>' + username + msg);
+			$('#container').append(username + msg + '<br>' );
 			$('#text').val('');
 			$("#container").scrollTop($("#container").prop("scrollHeight"));
 	  }
