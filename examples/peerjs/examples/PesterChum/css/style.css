@@ -18,14 +18,13 @@
 	}
 	
 	#wrap{
+	
 	}
 	
 	#container{
 		width:1024px;
 		height:400px;
 		margin-top:20px;
-		margin-left:400px;
-		float:left;
 		background-color:white;
 		border:1px solid #333;
 		overflow-y: scroll;
@@ -35,8 +34,6 @@
 	#connections{
 		width:200px;
 		height:400px;
-		float:right;
-		margin-right:250px;
 		margin-top:20px;
 		background-color:white;
 		border:1px solid #333;
