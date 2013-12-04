@@ -25,7 +25,9 @@
 		width:1024px;
 		height:400px;
 		margin-top:20px;
-		background-color:white;
+		background-color:#333;
+		color:white;
+		box-shadow: 0px 4px 2px #333;
 		border:1px solid #333;
 		overflow-y: scroll;
 		word-wrap:break-word;
@@ -35,9 +37,15 @@
 		width:200px;
 		height:400px;
 		margin-top:20px;
-		background-color:white;
+		color:white;
+		background-color:#333;
+		box-shadow: 0px 4px 2px #333;
 		border:1px solid #333;
 		overflow-y: scroll;
+	}
+	
+	#twitter{
+		margin-top:20px;
 	}
 	
 	#peerjs{
