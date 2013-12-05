@@ -115,7 +115,19 @@ function connect(c) {
  }
  
 $(document).ready(function() {
-    
+
+
+
+    //radio selection
+    $('input:radio[name=type]').click(function(){
+        var checkval = $(this).val();
+        $('#connect').prop('disabled', checkval == 'broadcast');
+        $('#rid').prop('disabled', checkval == 'broadcast');
+        $('#broadcast').prop('disabled', checkval == 'connect');
+        $('#topic').prop('disabled', checkval == 'connect');
+    });
+
+
 	// Connect to a peer
     $('#connect').click(function(){
       var c = peer.connect($('#rid').val());
