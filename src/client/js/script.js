@@ -106,7 +106,7 @@ function connect(c) {
  
  //updates UI
  function updateConns() {
-//	$('#connections').empty();
+	$('#connections').empty();
 	for(var i = 0; i < allPeers.length; i++) {
 		$('#connections').append( allPeers[i]+'<br>' );
 	}

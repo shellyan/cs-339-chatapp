@@ -2,6 +2,8 @@
 		font-family:arial,sans-serif;
 		margin:0;
 		background-color:#f2f2f2;
+        font-family: Courier New;
+
 	}
 	#header{
 		width:100%;
@@ -66,6 +68,11 @@
     table{
         margin-top: 30px;
     }
+    th{
+        font-size: 25;
+
+    }
+
 	#button{
 		font-size:14px;
 		position:absolute;
@@ -83,3 +90,7 @@
 	.whisper{
 		font-weight:bold;
 	}
+    #pid{
+        background-color:#333;
+        color: white;
+    }
