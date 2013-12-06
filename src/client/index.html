@@ -4,13 +4,18 @@
   <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>-->
   <!--<script type="text/javascript" src="http://cdn.peerjs.com/0.3/peer.min.js"></script>-->
   <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/customize-twitter-1.1.min.js"></script>
   <script type="text/javascript" src="js/peer.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
   <script type="text/javascript" src="js/twitter.js"></script>
   <script type="text/javascript" src="js/history.js"></script>
-
-
   <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+    var options = {
+        "url": "css/twitter.css"
+    };
+    CustomizeTwitterWidget(options);
+    </script>
 </head>
 <body>
 	
@@ -31,11 +36,24 @@
 			</div></td>
 			
 			<td><div id = "twitter">
-				<a class="twitter-timeline" href="https://twitter.com/cs_339_chatapp" data-widget-id="408726082842406912">Tweets by @cs_339_chatapp</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            <a class="twitter-timeline"
+            data-chrome="noheader noborders transparent nofooter"
+            data-link-color="#8e1d08"
+            data-dnt="true"
+            data-widget-id="408726082842406912"
+            href="https://twitter.com/ekrubnivek"></a>
+    </div></td>
 
-</div></td>
-	
+    <footer>
+        <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){js=d.createElement(s);js.id=id;
+            js.src="//platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js,fjs);}
+        }(document,"script","twitter-wjs");
+        </script>
+    </footer>
+
 	</tr>
 	</table>
 	</center>
@@ -45,12 +63,12 @@
 
 
         <form>
-        <input type="radio" name="type" value="connect">Connect to peer: <input type="text" id="rid" placeholder="Someone else's id">
+        <input type="radio" name="type" value="connect" checked="true">Connect to peer: <input type="text" id="rid" placeholder="Someone else's id">
 						 <input type="button" value="Connect" id="connect"><br>
 
 
-        <input type="radio" name="type" value="broadcast">Create a new dicussion: <input type="text" id="topic" placeholder="topic name">
-						 <input type="button" value="Broadcast" id="broadcast"><br>
+        <input type="radio" name="type" value="broadcast">Create a new dicussion: <input type="text" id="topic" placeholder="topic name" disabled="true">
+						 <input type="button" value="Broadcast" id="broadcast" disabled="true"><br>
         </form>
 
 
@@ -61,7 +79,7 @@
 		<form id="send">
 			<input type="text" id="text" placeholder="Enter message"><input class="button" type="submit" id="button" value="Send">
 		</form>
-             <input type="button" value="history" id="history">
+             <input type="button" value="Save chat history" id="history"><a pref='' id="shared_url" ></a>
 
 	</div>
 

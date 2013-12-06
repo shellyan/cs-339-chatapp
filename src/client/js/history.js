@@ -3,6 +3,11 @@
 $(document).ready(function() {
 
     $('#history').click(function(){
+        $('#history').prop("disabled",true);
+        $('#history').prop("value",'Generating shared link...');
+        alert("saved to evernote");
+
+
         var history = document.getElementById('container')
         request = $.ajax({
             url: 'http://cs-339-chatapp.herokuapp.com/history',
@@ -13,7 +18,12 @@ $(document).ready(function() {
         });
         request.done(function (response, textStatus, jqXHR){
             // log a message to the console
-            alert("Please copy the shared link:"+response);
+//            alert("saved to evernote");
+            $('#shared_url').text(response);
+            $('#shared_url').prop("href",response);
+            $('#history').prop("disabled",false);
+            $('#history').prop("value",'Save chat history');
+
         });
 
         request.always(function () {

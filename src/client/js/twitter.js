@@ -4,6 +4,7 @@ $(document).ready(function() {
     $('#broadcast').click(function(){
     $('#broadcast').prop("disabled",true);
     $('#topic').prop("disabled",true);
+    alert('message sent to twitter.')
     var topic = $('#topic').val();
     var peerID = $('#pid').text();
     request = $.ajax({
@@ -15,7 +16,7 @@ $(document).ready(function() {
     });
     request.done(function (response, textStatus, jqXHR){
         // log a message to the console
-        alert("Hooray, posted to twitter!");
+//        alert("Hooray, posted to twitter!");
     });
 
     request.always(function () {

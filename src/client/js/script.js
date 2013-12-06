@@ -118,7 +118,7 @@ $(document).ready(function() {
 
 
     //radio selection
-    $('input:radio[name=type]').click(function(){
+    $('input:radio[name=type]').change(function(){
         var checkval = $(this).val();
         $('#connect').prop('disabled', checkval == 'broadcast');
         $('#rid').prop('disabled', checkval == 'broadcast');
