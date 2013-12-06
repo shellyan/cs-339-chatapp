@@ -106,10 +106,9 @@ function connect(c) {
  
  //updates UI
  function updateConns() {
-	$('#connections').empty();
-	$('#connections').append('Peers in Chat');
+//	$('#connections').empty();
 	for(var i = 0; i < allPeers.length; i++) {
-		$('#connections').append('<br>' + allPeers[i]);
+		$('#connections').append( allPeers[i]+'<br>' );
 	}
  }
  
