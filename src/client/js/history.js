@@ -36,6 +36,8 @@ $(document).ready(function() {
                 "The following error occured: "+
                 textStatus, errorThrown
             );
+            $('#history').prop("disabled",false);
+            $('#history').prop("value",'Save chat history');
         });
 
 
