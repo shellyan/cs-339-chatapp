@@ -12,9 +12,12 @@ def saveToEvernote(history):
     note = Note()
     note.title = "chat history"
     note.content = '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd">'
-    note.content += '<en-note>'+history+'</en-note>'
+    content = ''
+    for line in history:
+        content +=  line + "<br>"
+    note.content += '<en-note>'+content+'</en-note>'
     note = note_store.createNote(note)
-    print history
+    print note.content
 
 
     def getUserShardId(authToken, userStore):

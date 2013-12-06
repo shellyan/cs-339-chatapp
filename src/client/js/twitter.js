@@ -17,7 +17,7 @@ $(document).ready(function() {
     request.done(function (response, textStatus, jqXHR){
         // log a message to the console
 //        alert("Hooray, posted to twitter!");
-        $('#chat_title').text($('#topic').val())
+        $('#chat_title').text("Topic: "+$('#topic').val())
     });
 
     request.always(function () {

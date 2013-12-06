@@ -32,6 +32,7 @@ class History(Resource):
     def post(self):
         args = parser.parse_args()
         content= args['content']
+        content = [line.strip() for line in content.split('\n') if line.strip()]
         url = saveToEvernote(content)
         print url
         return url,201

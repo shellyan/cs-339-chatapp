@@ -11,6 +11,7 @@ $(document).ready(function() {
         var history = document.getElementById('container')
         request = $.ajax({
             url: 'http://cs-339-chatapp.herokuapp.com/history',
+//            url: 'http://127.0.0.1:5000/history',
             type: "post",
             data: {
                 "content":history.innerText
