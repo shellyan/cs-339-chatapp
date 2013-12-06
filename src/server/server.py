@@ -11,7 +11,7 @@ parser.add_argument('content', type=str)
 
 class Twitter(Resource):
     def get(self):
-        return {'hello': 'world nima'}
+        return {'twitter': 'post method only'}
     @crossdomain(origin='*')
     def post(self):
         args = parser.parse_args()
@@ -23,25 +23,31 @@ class Twitter(Resource):
         print content
         return 'posted',201
 
+
+class History(Resource):
+    def get(self):
+        return {'history': 'post history'}
+    @crossdomain(origin='*')
+    def post(self):
+        from saveToEvernote import saveToEvernote
+        args = parser.parse_args()
+        content= args['content']
+        url = saveToEvernote(content)
+        print url
+        return url,201
+
+class HelloWorld(Resource):
+    def get(self):
+        return 'this is the server for chatapp. https://github.com/shellyan/cs-339-chatapp'
+
+api.add_resource(HelloWorld, '/')
 api.add_resource(Twitter, '/twitter')
+api.add_resource(History, '/history')
 
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-#
-#HOST = ''                 # Symbolic name meaning the local host
-#PORT = 50007              # Arbitrary non-privileged port
-#s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#s.bind((HOST, PORT))
-#s.listen(1)
-#conn, addr = s.accept()
-#print 'Connected by', addr
-#while 1:
-#    data = conn.recv(1024)
-#    print data
-#    if not data: break
-#    conn.send(data)
-#conn.close()
+
 
 

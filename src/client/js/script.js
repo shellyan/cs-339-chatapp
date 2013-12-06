@@ -15,7 +15,6 @@ var peer = new Peer({key: 'lwjd5qra8257b9', debug: true});
 		allPeers.push(id);
 		updateConns();
   });  
-
 // Await connections from others
 peer.on('connection', connect);
 
@@ -126,6 +125,12 @@ $(document).ready(function() {
         $('#broadcast').prop('disabled', checkval == 'connect');
         $('#topic').prop('disabled', checkval == 'connect');
     });
+
+    //save history
+//    $('#history').click(function(){
+//        var history = document.getElementById('container')
+//        alert(history.innerText)
+//    });
 
 
 	// Connect to a peer
