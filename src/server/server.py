@@ -2,16 +2,18 @@ from flask import Flask
 from flask.ext.restful import reqparse, abort, Api, Resource
 from twitter import *
 from decorator import crossdomain
+from saveToEvernote import saveToEvernote
+
 app = Flask(__name__)
 api = Api(app)
 parser = reqparse.RequestParser()
 parser.add_argument('content', type=str)
 
 
-
 class Twitter(Resource):
     def get(self):
         return {'twitter': 'post method only'}
+
     @crossdomain(origin='*')
     def post(self):
         args = parser.parse_args()
@@ -23,13 +25,11 @@ class Twitter(Resource):
         print content
         return 'posted',201
 
-
 class History(Resource):
     def get(self):
-        return {'history': 'post history'}
+        return {'history': 'post method only'}
     @crossdomain(origin='*')
     def post(self):
-        from saveToEvernote import saveToEvernote
         args = parser.parse_args()
         content= args['content']
         url = saveToEvernote(content)
@@ -38,7 +38,7 @@ class History(Resource):
 
 class HelloWorld(Resource):
     def get(self):
-        return 'this is the server for chatapp. https://github.com/shellyan/cs-339-chatapp'
+        return "this is the server for chatapp. https://github.com/shellyan/cs-339-chatapp"
 
 api.add_resource(HelloWorld, '/')
 api.add_resource(Twitter, '/twitter')

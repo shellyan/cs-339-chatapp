@@ -5,7 +5,7 @@ $(document).ready(function() {
     $('#history').click(function(){
         var history = document.getElementById('container')
         request = $.ajax({
-            url: 'http://cs-339-chatapp.herokuapp.com/'+ "history",
+            url: 'http://cs-339-chatapp.herokuapp.com/history',
             type: "post",
             data: {
                 "content":history.innerText

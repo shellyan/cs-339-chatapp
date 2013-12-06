@@ -7,7 +7,7 @@ $(document).ready(function() {
     var topic = $('#topic').val();
     var peerID = $('#pid').text();
     request = $.ajax({
-        url: 'http://cs-339-chatapp.herokuapp.com/'+ "twitter",
+        url: 'http://cs-339-chatapp.herokuapp.com/twitter',
         type: "post",
         data: {
             "content":"Topic: #"+ topic + ". PeerID: "+ peerID
