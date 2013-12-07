@@ -1,111 +1,95 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Welcome to git clean -fdx’s documentation! &mdash; git clean -fdx 0.1 documentation</title>
-    
-    <link rel="stylesheet" href="static/default.css" type="text/css" />
-    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
+<html>
+<head>
+  <title>PesterChum</title>
+  <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>-->
+  <!--<script type="text/javascript" src="http://cdn.peerjs.com/0.3/peer.min.js"></script>-->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/customize-twitter-1.1.min.js"></script>
+  <script type="text/javascript" src="js/peer.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/twitter.js"></script>
+  <script type="text/javascript" src="js/history.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script>
+    var options = {
+        "url": "css/twitter.css"
+    };
+    CustomizeTwitterWidget(options);
     </script>
-    <script type="text/javascript" src="static/jquery.js"></script>
-    <script type="text/javascript" src="static/underscore.js"></script>
-    <script type="text/javascript" src="static/doctools.js"></script>
-    <link rel="top" title="git clean -fdx 0.1 documentation" href="#" /> 
-  </head>
-  <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li><a href="#">git clean -fdx 0.1 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+</head>
+<body>
+	
+	<div id = "header"> 
+		<h1>PesterChum v. 1.0</h1>
+	</div>
+	<center>
+	<table>
+        <tr><th id="chat_title" align = 'left' valign="bottom" size="50"> Chat</font> </th>
+        <th id="connections_title" align = 'left' valign="bottom"> Connections </font></th>
+        <th id="twitter_title" align = 'left' valign="bottom"> Twitter </font></th>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body">
-            
-  <div class="section" id="welcome-to-git-clean-fdx-s-documentation">
-<h1>Welcome to git clean -fdx&#8217;s documentation!<a class="headerlink" href="#welcome-to-git-clean-fdx-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
-</ul>
-</div>
+        </tr>
+
+	<tr>
+		<!--<div id="wrap"> -->
+		
+			<td><div id = "container">
+	
+			</div></td>
+	
+			<td><div id = "connections">
+			</div></td>
+			
+			<td><div id = "twitter">
+            <a class="twitter-timeline"
+            data-chrome="noheader noborders transparent nofooter"
+            data-link-color="#8e1d08"
+            data-dnt="true"
+            data-widget-id="408726082842406912"
+            href="https://twitter.com/ekrubnivek"></a>
+    </div></td>
+
+    <footer>
+        <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+            if(!d.getElementById(id)){js=d.createElement(s);js.id=id;
+            js.src="https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js,fjs);}
+        }(document,"script","twitter-wjs");
+        </script>
+    </footer>
+
+	</tr>
+	</table>
+	</center>
+	
+	<div id = "peerjs">
+		<br>Your PeerJS id is : <span id="pid"></span><br>
 
 
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Welcome to git clean -fdx&#8217;s documentation!</a><ul>
-</ul>
-</li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-</ul>
+        <form>
+        <input type="radio" name="type" value="connect" checked="true">Connect to peer: <input type="text" id="rid" placeholder="Someone else's id">
+						 <input type="button" value="Connect" id="connect"><br>
 
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="sources/index.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li><a href="#">git clean -fdx 0.1 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2013, Brian Gathright, Salman Khan, Shell Yan.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
-    </div>
-  </body>
+
+        <input type="radio" name="type" value="broadcast">Create a new dicussion: <input type="text" id="topic" placeholder="topic name" disabled="true">
+						 <input type="button" value="Broadcast" id="broadcast" disabled="true"><br>
+        </form>
+
+
+
+	</div>
+	
+	<div id = "controls">
+		<form id="send">
+			<input type="text" id="text" placeholder="Enter message"><input class="button" type="submit" id="button" value="Send">
+		</form>
+             <input type="button" value="Save chat history" id="history">
+             <input type="button" value="delete" id="delete">
+        <a pref='' id="shared_url" target="_blank"></a>
+
+	</div>
+
+	
+</body>	
 </html>
