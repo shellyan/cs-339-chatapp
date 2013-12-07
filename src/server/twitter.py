@@ -1,5 +1,4 @@
 __author__ = 'shellyan'
-import tweepy
 
 # == OAuth Authentication ==
 #

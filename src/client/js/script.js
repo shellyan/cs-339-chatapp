@@ -18,6 +18,7 @@ var peer = new Peer({key: 'lwjd5qra8257b9', debug: true});
 // Await connections from others
 peer.on('connection', connect);
 
+
 // Connects our peers
 function connect(c) {
     var conn = c;
@@ -62,12 +63,15 @@ function connect(c) {
 	//when someone leaves
     conn.on('close', function(err){ 
 	removeConns(conn);
-	$('#container').append(conn.peer + 'has left the chat.<br>');
+	$('#container').append(conn.peer + ' has left the chat.<br>');
+    deleteTweet(conn.peer);
 	});
  }
 
+
+
  function processCommand(command, data){
-	
+
  }
  
  
@@ -111,7 +115,31 @@ function connect(c) {
 		$('#connections').append( allPeers[i]+'<br>' );
 	}
  }
- 
+
+
+function deleteTweet(id){
+        console.log('trying to delete '+ id);
+        request = $.ajax({
+            url: 'http://cs-339-chatapp.herokuapp.com/delete',
+    //        url: 'http://127.0.0.1:5000/delete',
+            type: "post",
+            async: false,
+
+            data: {
+                "content": id
+
+            }
+        });
+
+        request.done(function (response, textStatus, jqXHR){
+        });
+
+        request.fail(function (jqXHR, textStatus, errorThrown){
+            console.log(jqXHR);
+        });
+
+    }
+
 $(document).ready(function() {
 
 
@@ -126,11 +154,18 @@ $(document).ready(function() {
     });
 
     //save history
-//    $('#history').click(function(){
-//        var history = document.getElementById('container')
-//        alert(history.innerText)
-//    });
+    $('#delete').click(function(){
 
+        deleteTweet();
+    });
+
+
+
+
+    window.onbeforeunload = function(){
+        var id = $('#pid').text();
+        return 'The topic you created on twitter will be deleted. '
+    }
 
 	// Connect to a peer
     $('#connect').click(function(){
