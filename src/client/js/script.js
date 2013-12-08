@@ -19,7 +19,7 @@ var peer = new Peer({key: 'lwjd5qra8257b9', debug: true});
 peer.on('connection', connect);
 
 window.onbeforeunload = function(){
-    if($('#connect').is(":disabled")==true){
+    if($('#connect').is(":disabled")==true&&$('#broadcast').is(":disabled")==true){
         deleteTweet($('#pid').text());
         return 'The topic you created on twitter will be deleted. '
     }
