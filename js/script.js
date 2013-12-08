@@ -18,12 +18,36 @@ var peer = new Peer({key: 'lwjd5qra8257b9', debug: true});
 // Await connections from others
 peer.on('connection', connect);
 
+window.onbeforeunload = function(){
+    if($('#connect').is(":disabled")==true){
+        deleteTweet($('#pid').text());
+        return 'The topic you created on twitter will be deleted. '
+    }
+
+    return null
+
+}
+
+// Connect to a peer
+$('#connect').click(function(){
+  var c = peer.connect($('#rid').val());
+  $('#rid').val("");
+  c.on('open', function(){
+    connect(c); //sets up a connection between the peers
+  });
+  c.on('error', function(err){ alert(err) });
+
+
+});
+
 
 // Connects our peers
 function connect(c) {
     var conn = c;
     $('#container').append('Now chatting with ' + conn.peer + '<br>');
-    
+    //diable connect button once connected
+    $('#connect').prop('disabled', true);
+
 	notifyOthers(c.peer);
 	addConns(conn);
 	
@@ -153,29 +177,9 @@ $(document).ready(function() {
         $('#topic').prop('disabled', checkval == 'connect');
     });
 
-    //save history
-    $('#delete').click(function(){
-
-        deleteTweet();
-    });
 
 
 
-
-    window.onbeforeunload = function(){
-        var id = $('#pid').text();
-        return 'The topic you created on twitter will be deleted. '
-    }
-
-	// Connect to a peer
-    $('#connect').click(function(){
-      var c = peer.connect($('#rid').val());
-	  $('#rid').val("");
-      c.on('open', function(){
-        connect(c); //sets up a connection between the peers
-      });
-      c.on('error', function(err){ alert(err) });  
-    });
 	
     // Send a chat message
     $('#send').submit(function(e){
