@@ -1,8 +1,10 @@
 
 $(document).ready(function() {
 
+
+
+
     $('#broadcast').click(function(){
-    $('#broadcast').prop("disabled",true);
     $('#topic').prop("disabled",true);
     alert('message sent to twitter.')
     var topic = $('#topic').val();
@@ -18,6 +20,8 @@ $(document).ready(function() {
         // log a message to the console
 //        alert("Hooray, posted to twitter!");
         $('#chat_title').text("Topic: "+$('#topic').val())
+        $('#broadcast').prop("disabled",true);
+
     });
 
     request.always(function () {
@@ -28,6 +32,8 @@ $(document).ready(function() {
 
     request.fail(function (jqXHR, textStatus, errorThrown){
         // log the error to the console
+        $('#broadcast').prop("disabled",false);
+
         alert(
             "The following error occured: "+
             textStatus, errorThrown
