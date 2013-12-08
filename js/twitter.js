@@ -8,6 +8,7 @@ $(document).ready(function() {
     $('#topic').prop("disabled",true);
     alert('message sent to twitter.')
     var topic = $('#topic').val();
+    topic.replace('','_');
     var peerID = $('#pid').text();
     request = $.ajax({
         url: 'http://cs-339-chatapp.herokuapp.com/twitter',

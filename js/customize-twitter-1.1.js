@@ -74,7 +74,7 @@ var CustomizeTwitterWidget = function(data) {
     }
     var timeoutLength;
     if (data.timeout_length === undefined || notNumeric(data.timeout_length)) {
-        timeoutLength = 300;
+        timeoutLength = 100;
     } else {
         timeoutLength = data.timeout_length;
     }
