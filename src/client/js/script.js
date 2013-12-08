@@ -179,7 +179,15 @@ $(document).ready(function() {
 
 
 
-
+    	// Connect to a peer
+    $('#connect').click(function(){
+      var c = peer.connect($('#rid').val());
+	  $('#rid').val("");
+      c.on('open', function(){
+        connect(c); //sets up a connection between the peers
+      });
+      c.on('error', function(err){ alert(err) });
+    });
 	
     // Send a chat message
     $('#send').submit(function(e){
