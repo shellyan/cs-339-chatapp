@@ -1,11 +1,15 @@
 # Cs 339 Chatapp
 
+<<<<<<< HEAD
 A open souce, peer to peer chat app in javascript.
+=======
+A open souce, peer to peer chat app in javascript. 
+>>>>>>> 488ad1b4d98753101de85da6914c29ebb07487d7
 
 A restful server handles twitter and evernote api in python.
 
 ## Getting Started
-Clone the [production version].
+Clone this repo. Open /src/client/index.html. In order to support broadcast and saving history, you need to hava a remote server. This is the default server powered by [heroku](http://cs-339-chatapp.herokuapp.com/).
 
 
 ## Documentation

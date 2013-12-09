@@ -5,10 +5,7 @@
 
 cs-339-chatapp documentation
 ============================================
-.. figure::  Chatapp.png
-    :align: center
 
-.. line-block::
 
 
 .. toctree::

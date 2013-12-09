@@ -7,8 +7,6 @@ cs-339-chatapp documentation
 ============================================
 
 
-.. line-block::
-
 
 .. toctree::
    intro
