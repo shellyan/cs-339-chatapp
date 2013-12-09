@@ -2,7 +2,7 @@ Usage
 ======
 
 Client app
---------
+----------
 It provides two ways of chatting, private group chatting and public topic chatting.
 
 - Private group chatting
@@ -25,7 +25,7 @@ Simply follow the documentaion on https://devcenter.heroku.com/articles/getting-
 have virtual environment acitivated.
 
 Generate Sphinx document
----------------
+------------------------
 We embedded sphinx documentation in our client app.
 
 **Customized theme**
@@ -63,6 +63,7 @@ We used customized theme `Flask <https://github.com/mitsuhiko/flask-sphinx-theme
                                     "fork me" badge
 
 **Github Pages Integration**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to put sphinx documentation on `Github Pages <http://pages.github.com/>`_, you need to install
 `sphinx-to-github <https://github.com/michaeljones/sphinx-to-github>`_. Basically it renames [_folder name]
