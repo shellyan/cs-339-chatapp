@@ -1,12 +1,11 @@
 # Cs 339 Chatapp
 
 A open souce, peer to peer chat app in javascript.
+
 A restful server handles twitter and evernote api in python.
 
 ## Getting Started
 Clone the [production version].
-
-
 
 
 ## Documentation

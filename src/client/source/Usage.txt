@@ -22,6 +22,7 @@ and a generated shared link. It uses `Flask <http://flask.pocoo.org/>`_ as mainf
 `flask-restful <http://flask-restful.readthedocs.org/en/latest/index.html>`_ as extension.
 
 **Host server app on heroku**
+
 Simply follow the documentaion on https://devcenter.heroku.com/articles/getting-started-with-python. Make sure you
 have virtual environment acitivated.
 
