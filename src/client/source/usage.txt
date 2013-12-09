@@ -19,7 +19,8 @@ Our server provides service of posting tweet and delete tweet,  saving chat hist
 and a generated shared link. It uses `Flask <http://flask.pocoo.org/>`_ as mainframe and powers
 `flask-restful <http://flask-restful.readthedocs.org/en/latest/index.html>`_ as extension.
 
-**Host server app on heroku**
+Host server app on heroku
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Simply follow the documentaion on https://devcenter.heroku.com/articles/getting-started-with-python. Make sure you
 have virtual environment acitivated.
@@ -28,7 +29,8 @@ Generate Sphinx document
 ------------------------
 We embedded sphinx documentation in our client app.
 
-**Customized theme**
+Customized theme
+~~~~~~~~~~~~~~~~
 
 We used customized theme `Flask <https://github.com/mitsuhiko/flask-sphinx-themes>`_. ::
 
@@ -62,7 +64,7 @@ We used customized theme `Flask <https://github.com/mitsuhiko/flask-sphinx-theme
        github_fork = ''             repository name on github for the
                                     "fork me" badge
 
-**Github Pages Integration**
+Github Pages Integration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to put sphinx documentation on `Github Pages <http://pages.github.com/>`_, you need to install
