@@ -1,0 +1,163 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Intro &mdash;  cs-339-chatapp  0.1 documentation</title>
+    
+    <link rel="stylesheet" href="static/flasky.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <link rel="top" title=" cs-339-chatapp  0.1 documentation" href="index.html" />
+    <link rel="next" title="Usage" href="usage.html" />
+    <link rel="prev" title="Welcome to cs-339-chatapp ‘s documentation!" href="documentation.html" /> 
+  </head>
+  <body>
+  
+  
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="intro">
+<h1>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h1>
+<p>Produced by Shell Yan, Brian Gathright, and Salman Khan</p>
+<div class="section" id="goal">
+<h2>Goal<a class="headerlink" href="#goal" title="Permalink to this headline">¶</a></h2>
+<p>A Peer-to-Peer (P2P) chat application.</p>
+</div>
+<div class="section" id="process">
+<h2>Process<a class="headerlink" href="#process" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Setup a Trello Board and GitHub repo.</li>
+<li>Researched P2P logic (What is P2P, how does it work etc.)</li>
+<li>Considered creating Python P2P built from scratch
+* But... then we realized we had very little time.</li>
+<li>Looked into javascript ideas, discovered WebRTC through research!<ul>
+<li>Taught ourselves how to use javascript (codeacademy!)</li>
+<li>Discovered PeerJS (a wrapper for WebRTC, more on that in a minute)</li>
+</ul>
+</li>
+<li>Used PeerJS as basis for application and went from there adding features until we ran out of time.</li>
+</ol>
+</div>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="peerjs-and-nodejs">
+<h3>PeerJS (and NodeJS)<a class="headerlink" href="#peerjs-and-nodejs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>PeerJS is a API that uses WebRTC for P2P communication.<ul>
+<li>WebRTC (Web Real Time Communication) is a relatively new idea. It&#8217;s purpose is to allow web browsers to communicate directly with each other.</li>
+<li>Currently WebRTC is supported in Chrome, FireFox and Opera.</li>
+<li>WebRTC can be used for chat, videochat, and file sharing.</li>
+</ul>
+</li>
+<li>PeerJS adds a layer between our code and WebRTC<ul>
+<li>Peers: Webbrowser tabs which are assigned ID&#8217;s which are needed to form connections.</li>
+<li>PeerJS offers a free cloud server which is used to assign ID&#8217;s and broker connections between peers. NodeJS (which is really cool btw) is used to power the PeerServer.<ul>
+<li>Note: You can also run your own NodeServer, we were doing this at first, but why pass up free hosting.</li>
+<li><strong>NO DATA</strong> goes to the cloud server once the connection is established. In this way the actual communications are P2P.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Connections: Two Peers can connect to each other via their ID&#8217;s. Connections are strictly between two peers.</li>
+</ul>
+</div>
+<div class="section" id="javascript">
+<h3>Javascript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h3>
+<p>We wrote a script which implemented PeerJS and added some features.</p>
+<ol class="arabic simple">
+<li>We added multichat. PeerJS connections are strictly one-to-one. To add multichat, we made it so that when a Peer starts a connection, it informs all of its current Peers of the new Peer&#8217;s ID and prompts them to connect as well.<ul>
+<li>In this way all Peers are connected to all other Peers via several one-to-one connections. Then, if any Peer drops out all of the other Peer&#8217;s simply end that one connection and they can still communicate with everyone else.</li>
+<li>You can still whisper particular Peer&#8217;s in a group conversation.</li>
+</ul>
+</li>
+<li>We added the option of public sharing of ID&#8217;s (powered by Twitter). PeerJS is set up in such a way that you must know another Peer&#8217;s ID in order to connect to them. This is great for private chat, but we wanted a public feature.<ul>
+<li>We added the option to share your ID with the general public. We set up a bot to tweet your ID and a topic of your choice. The Tweets are displayed in the app so you can quickly connect to anonymous Peers to chat about topics you find interesting.</li>
+</ul>
+</li>
+<li>We also added the option to save your chat log (powered by EverNote). Similar to the Twitter bot, we can automate posting of chats to Evernote.</li>
+<li>We wanted to add encryption, but we found out via research that WebRTC already implements some forms of encryption (AES encryption) plus we were running out of time :o</li>
+</ol>
+</div>
+<div class="section" id="html-and-css">
+<h3>HTML and CSS<a class="headerlink" href="#html-and-css" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>We used HTML and CSS to style our web application and make it look awesome.</li>
+</ul>
+</div>
+<div class="section" id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<p>Python is used to power the Twitter and Evernote bot. We also used Flask and Heroku for this.</p>
+</div>
+</div>
+<div class="section" id="demo">
+<h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
+<p>We will now Demo the App</p>
+</div>
+<div class="section" id="distributed-aspects">
+<h2>Distributed Aspects<a class="headerlink" href="#distributed-aspects" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>P2P Communication - lots of one-to-one connections set up between Peers allows the addition or removal of individual Peers. No central server.</li>
+<li>Use of CloudServer to broker connections</li>
+<li>Use of Twitter as &#8220;free broadcasting medium&#8221; for Topic/ID pairs.</li>
+<li>Use of Evernote as &#8220;free storage&#8221; for chat logs.</li>
+<li>Use of Heroku to host Twitter/Evernote Bot.</li>
+</ul>
+</div>
+<div class="section" id="what-we-learned">
+<h2>What we Learned<a class="headerlink" href="#what-we-learned" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Learned a lot about Javascript (as well as HTML and CSS)</li>
+<li>Learned how to make bots to tweet etc.</li>
+<li>Learned how to make javascript and python talk to eachother.</li>
+<li>Learned about a up and rising area of computerscience (WebRTC)</li>
+<li>Made a fun little chatapp</li>
+</ul>
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.webrtc.org/">http://www.webrtc.org/</a></p>
+<p><a class="reference external" href="http://peerjs.com/">http://peerjs.com/</a></p>
+<p><a class="reference external" href="http://nodejs.org/">http://nodejs.org/</a></p>
+<p><a class="reference external" href="https://twitter.com/">https://twitter.com/</a></p>
+<p><a class="reference external" href="http://evernote.com/">http://evernote.com/</a></p>
+<p><a class="reference external" href="http://stackoverflow.com/">http://stackoverflow.com/</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <a href="http://github.com/shellyan/cs-339-chatapp"><img style="position: fixed; top: 0; right: 0; border: 0;"
+    src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  
+
+  
+
+  </body>
+</html>
