@@ -37,11 +37,41 @@ $('#connect').click(function(){
 });
 
 
+
+
+
+function searchTopic(id){
+    request = $.ajax({
+//    url: 'http://cs-339-chatapp.herokuapp.com/search',
+    url: 'http://127.0.0.1:5000/search',
+    type: "post",
+    data: {
+        "content": id
+    }
+    });
+    request.done(function (response, textStatus, jqXHR){
+        // log a message to the console
+//        alert("Hooray, posted to twitter!");
+        $('#chat_title').text(response)
+    });
+
+
+    request.fail(function (jqXHR, textStatus, errorThrown){
+        // log the error to the console
+
+        alert(
+            "The following error occured: "+
+            textStatus, errorThrown
+        );
+    });
+}
+
+
 // Connects our peers
 function connect(c) {
     var conn = c;
     $('#container').append('Now chatting with ' + conn.peer + '<br>');
-
+    searchTopic(conn.peer);
 	notifyOthers(c.peer);
 	addConns(conn);
 	

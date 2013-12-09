@@ -14,7 +14,7 @@ $(document).ready(function() {
         url: 'http://cs-339-chatapp.herokuapp.com/twitter',
         type: "post",
         data: {
-            "content":"Topic: #"+ topic + ". PeerID: "+ peerID
+            "content":"Topic: #"+ topic + " PeerID: "+ peerID
         }
     });
     request.done(function (response, textStatus, jqXHR){

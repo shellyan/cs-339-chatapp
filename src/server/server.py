@@ -1,3 +1,5 @@
+
+
 from flask import Flask
 from flask.ext.restful import reqparse, abort, Api, Resource
 from twitter import *
@@ -26,6 +28,31 @@ class Twitter(Resource):
         api.update_status(content)
 
         return 'posted',202
+
+class Search(Resource):
+
+    @crossdomain(origin='*')
+    def post(self):
+        args = parser.parse_args()
+        id = args['content']
+        auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
+        topic = 'Chat'
+
+        try:
+            api = tweepy.API(auth)
+            result = api.search(id)
+            if result[0]:
+                for tweet in result:
+                    topic = tweet.text[:tweet.text.find('PeerID')]
+                    return topic ,201
+        except:
+            pass
+
+
+        return topic, 201
+
+
 
 class Delete(Resource):
 
@@ -70,6 +97,7 @@ api.add_resource(HelloWorld, '/')
 api.add_resource(History, '/history')
 api.add_resource(Twitter, '/twitter')
 api.add_resource(Delete, '/delete')
+api.add_resource(Search, '/search')
 
 
 
