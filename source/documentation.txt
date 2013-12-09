@@ -10,7 +10,7 @@ cs-339-chatapp documentation
 
 .. toctree::
    intro
-   Usage
+   usage
    :maxdepth: 2
 
 
