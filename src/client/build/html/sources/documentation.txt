@@ -3,10 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-cs-339-chatapp 's documentation
+cs-339-chatapp documentation
 ============================================
+.. figure::  Chatapp.png
+    :align: center
 
-Contents:
+.. line-block::
+
 
 .. toctree::
    intro
