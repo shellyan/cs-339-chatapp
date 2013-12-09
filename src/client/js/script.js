@@ -42,8 +42,8 @@ $('#connect').click(function(){
 
 function searchTopic(id){
     request = $.ajax({
-//    url: 'http://cs-339-chatapp.herokuapp.com/search',
-    url: 'http://127.0.0.1:5000/search',
+    url: 'http://cs-339-chatapp.herokuapp.com/search',
+//    url: 'http://127.0.0.1:5000/search',
     type: "post",
     data: {
         "content": id
