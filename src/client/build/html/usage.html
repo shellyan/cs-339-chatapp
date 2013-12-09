@@ -39,7 +39,115 @@
             
   <div class="section" id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
-<p>Produced by Shell Yan, Brian Gathright, and Salman Khan</p>
+<div class="section" id="client-app">
+<h2>Client app<a class="headerlink" href="#client-app" title="Permalink to this headline">¶</a></h2>
+<p>It provides two ways of chatting, private group chatting and public topic chatting.</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Private group chatting</dt>
+<dd><p class="first last">Content</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Public topic chatting</dt>
+<dd><p class="first last">Content</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Save chatting history</dt>
+<dd><p class="first last">Content</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="restful-server">
+<h2>Restful Server<a class="headerlink" href="#restful-server" title="Permalink to this headline">¶</a></h2>
+<p>Our server provides service of posting tweet and delete tweet,  saving chat history on <a class="reference external" href="http://evernote.com/">Evernote</a>
+and a generated shared link. It uses <a class="reference external" href="http://flask.pocoo.org/">Flask</a> as mainframe and powers
+<a class="reference external" href="http://flask-restful.readthedocs.org/en/latest/index.html">flask-restful</a> as extension.</p>
+<dl class="docutils">
+<dt><strong>Host server app on heroku</strong></dt>
+<dd>Simply follow the documentaion on <a class="reference external" href="https://devcenter.heroku.com/articles/getting-started-with-python">https://devcenter.heroku.com/articles/getting-started-with-python</a>. Make sure you
+have virtual environment acitivated.</dd>
+</dl>
+</div>
+<div class="section" id="generate-sphinx-document">
+<h2>Generate Sphinx document<a class="headerlink" href="#generate-sphinx-document" title="Permalink to this headline">¶</a></h2>
+<p>We embedded sphinx documentation in our client app.</p>
+<p><strong>Customized theme</strong>
+We used customized theme <a class="reference external" href="https://github.com/mitsuhiko/flask-sphinx-themes">Flask</a>.</p>
+<div class="highlight-python"><pre>This repository contains sphinx styles for Flask and Flask related
+projects.  To use this style in your Sphinx documentation, follow
+this guide:
+
+1. put this folder as _themes into your docs folder.  Alternatively
+   you can also use git submodules to check out the contents there.
+2. add this to your conf.py:
+
+   sys.path.append(os.path.abspath('_themes'))
+   html_theme_path = ['_themes']
+   html_theme = 'flask'
+
+The following themes exist:
+
+- 'flask' - the standard flask documentation theme for large
+  projects
+- 'flask_small' - small one-page theme.  Intended to be used by
+  very small addon libraries for flask.
+
+The following options exist for the flask_small theme:
+
+   [options]
+   index_logo = ''              filename of a picture in _static
+                                to be used as replacement for the
+                                h1 in the index.rst file.
+   index_logo_height = 120px    height of the index logo
+   github_fork = ''             repository name on github for the
+                                "fork me" badge</pre>
+</div>
+<p><strong>Github Pages Integration</strong></p>
+<p>In order to put sphinx documentation on <a class="reference external" href="http://pages.github.com/">Github Pages</a>, you need to install
+<a class="reference external" href="https://github.com/michaeljones/sphinx-to-github">sphinx-to-github</a>. Basically it renames [_folder name]
+to [folder name], because Github Pages ignores [_folder name] by default.</p>
+<p>Here is the instruction:</p>
+<ul>
+<li><p class="first">Create your virtual env</p>
+<div class="highlight-python"><pre>virtualenv venv</pre>
+</div>
+</li>
+<li><p class="first">Activate virtual environment</p>
+<div class="highlight-python"><pre>. venv/bin/activate</pre>
+</div>
+</li>
+<li><p class="first">Pip install sphinxtogithub</p>
+<div class="highlight-python"><pre>pip install sphinxtogithub</pre>
+</div>
+</li>
+<li><p class="first">Add sphinxtogithub to the extensions list in the conf.py file in your Sphinx project</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&quot;sphinxtogithub&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Build your sphinx</p>
+<div class="highlight-python"><pre>make html</pre>
+</div>
+</li>
+<li><p class="first">Copy the whole [client] folder to any other place. Go to [your_project_folder]</p>
+<div class="highlight-python"><pre>git checkout gh-pages</pre>
+</div>
+<p>Move your copied [client] to the root of [[your_project_folder] ]</p>
+<div class="highlight-python"><pre>git add .
+git commit -a -m 'update new content'
+git push</pre>
+</div>
+</li>
+<li><p class="first">Your page will be availabe at <a class="reference external" href="http://[username].github.io/[project_name">http://[username].github.io/[project_name</a>]</p>
+</li>
+</ul>
+</div>
 </div>
 
 

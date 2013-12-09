@@ -1,4 +1,105 @@
 Usage
-==============
+======
 
-Produced by Shell Yan, Brian Gathright, and Salman Khan
+Client app
+--------
+It provides two ways of chatting, private group chatting and public topic chatting.
+
+- Private group chatting
+    Content
+- Public topic chatting
+    Content
+- Save chatting history
+    Content
+
+
+
+Restful Server
+--------
+
+Our server provides service of posting tweet and delete tweet,  saving chat history on `Evernote <http://evernote.com/>`_
+and a generated shared link. It uses `Flask <http://flask.pocoo.org/>`_ as mainframe and powers
+`flask-restful <http://flask-restful.readthedocs.org/en/latest/index.html>`_ as extension.
+
+**Host server app on heroku**
+Simply follow the documentaion on https://devcenter.heroku.com/articles/getting-started-with-python. Make sure you
+have virtual environment acitivated.
+
+Generate Sphinx document
+---------------
+We embedded sphinx documentation in our client app.
+
+**Customized theme**
+
+We used customized theme `Flask <https://github.com/mitsuhiko/flask-sphinx-themes>`_. ::
+
+
+    This repository contains sphinx styles for Flask and Flask related
+    projects.  To use this style in your Sphinx documentation, follow
+    this guide:
+
+    1. put this folder as _themes into your docs folder.  Alternatively
+       you can also use git submodules to check out the contents there.
+    2. add this to your conf.py:
+
+       sys.path.append(os.path.abspath('_themes'))
+       html_theme_path = ['_themes']
+       html_theme = 'flask'
+
+    The following themes exist:
+
+    - 'flask' - the standard flask documentation theme for large
+      projects
+    - 'flask_small' - small one-page theme.  Intended to be used by
+      very small addon libraries for flask.
+
+    The following options exist for the flask_small theme:
+
+       [options]
+       index_logo = ''              filename of a picture in _static
+                                    to be used as replacement for the
+                                    h1 in the index.rst file.
+       index_logo_height = 120px    height of the index logo
+       github_fork = ''             repository name on github for the
+                                    "fork me" badge
+
+**Github Pages Integration**
+
+In order to put sphinx documentation on `Github Pages <http://pages.github.com/>`_, you need to install
+`sphinx-to-github <https://github.com/michaeljones/sphinx-to-github>`_. Basically it renames [_folder name]
+to [folder name], because Github Pages ignores [_folder name] by default.
+
+Here is the instruction:
+
+- Create your virtual env ::
+
+    virtualenv venv
+- Activate virtual environment ::
+
+    . venv/bin/activate
+- Pip install sphinxtogithub ::
+
+    pip install sphinxtogithub
+- Add sphinxtogithub to the extensions list in the conf.py file in your Sphinx project ::
+
+    extensions = [ "sphinxtogithub" ]
+- Build your sphinx ::
+
+    make html
+- Copy the whole [client] folder to any other place. Go to [your_project_folder] ::
+
+    git checkout gh-pages
+  Move your copied [client] to the root of [[your_project_folder] ]  ::
+
+    git add .
+    git commit -a -m 'update new content'
+    git push
+
+- Your page will be availabe at http://[username].github.io/[project_name]
+
+
+
+
+
+
+

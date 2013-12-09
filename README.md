@@ -1,30 +1,24 @@
 # Cs 339 Chatapp
 
 A open souce, peer to peer chat app in javascript.
+A restful server handles twitter and evernote api in python.
 
 ## Getting Started
-Download the [production version][min] or the [development version][max].
+Clone the [production version].
 
-[min]: https://raw.github.com/shellyan/cs-339-chatapp/master/dist/cs-339-chatapp.min.js
-[max]: https://raw.github.com/shellyan/cs-339-chatapp/master/dist/cs-339-chatapp.js
 
-In your web page:
 
-```html
-<script src="jquery.js"></script>
-<script src="dist/cs-339-chatapp.min.js"></script>
-<script>
-jQuery(function($) {
-  $.awesome(); // "awesome"
-});
-</script>
-```
 
 ## Documentation
-_(Coming soon)_
+[Sphinx documentation](http://shellyan.github.io/cs-339-chatapp/build/html/documentation)
 
 ## Examples
 _(Coming soon)_
 
 ## Release History
 _(Nothing yet)_
+
+
+##Copyright license
+
+For more information, see the file LICENSE-MIT in this directory.
