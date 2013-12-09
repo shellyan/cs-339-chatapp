@@ -6,16 +6,14 @@ Client app
 It provides two ways of chatting, private group chatting and public topic chatting.
 
 - Private group chatting
-    Content
+  - Share your ID with select individuals and enjoy private chat.
 - Public topic chatting
-    Content
+  - Broadcast your ID to twitter so others can join you in a public room.
 - Save chatting history
-    Content
-
-
+  - Save your chat logs to Evernote.
 
 Restful Server
---------
+--------------
 
 Our server provides service of posting tweet and delete tweet,  saving chat history on `Evernote <http://evernote.com/>`_
 and a generated shared link. It uses `Flask <http://flask.pocoo.org/>`_ as mainframe and powers
