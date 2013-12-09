@@ -1,0 +1,109 @@
+cs-339-chatapp 
+==============
+
+Produced by Shell Yan, Brian Gathright, and Salman Khan
+
+Goal
+----
+
+A Peer-to-Peer (P2P) chat application.
+
+Process
+-------
+
+#. Setup a Trello Board and GitHub repo.
+#. Researched P2P logic (What is P2P, how does it work etc.)
+#. Considered creating Python P2P built from scratch
+   * But... then we realized we had very little time.
+#. Looked into javascript ideas, discovered WebRTC through research!
+
+   * Taught ourselves how to use javascript (codeacademy!)
+   * Discovered PeerJS (a wrapper for WebRTC, more on that in a minute)
+
+#. Used PeerJS as basis for application and went from there adding features until we ran out of time.
+
+Components
+----------
+
+PeerJS (and NodeJS)
+~~~~~~~~~~~~~~~~~~~
+   
+* PeerJS is a API that uses WebRTC for P2P communication.
+  
+  * WebRTC (Web Real Time Communication) is a relatively new idea. It's purpose is to allow web browsers to communicate directly with each other.
+  * Currently WebRTC is supported in Chrome, FireFox and Opera. 
+  * WebRTC can be used for chat, videochat, and file sharing.
+* PeerJS adds a layer between our code and WebRTC
+  
+  * Peers: Webbrowser tabs which are assigned ID's which are needed to form connections.
+  * PeerJS offers a free cloud server which is used to assign ID's and broker connections between peers. NodeJS (which is really cool btw) is used to power the PeerServer. 
+
+    * Note: You can also run your own NodeServer, we were doing this at first, but why pass up free hosting.
+    * **NO DATA** goes to the cloud server once the connection is established. In this way the actual communications are P2P.
+
+* Connections: Two Peers can connect to each other via their ID's. Connections are strictly between two peers. 
+
+Javascript
+~~~~~~~~~~
+
+We wrote a script which implemented PeerJS and added some features.
+
+#. We added multichat. PeerJS connections are strictly one-to-one. To add multichat, we made it so that when a Peer starts a connection, it informs all of its current Peers of the new Peer's ID and prompts them to connect as well.
+
+   * In this way all Peers are connected to all other Peers via several one-to-one connections. Then, if any Peer drops out all of the other Peer's simply end that one connection and they can still communicate with everyone else.
+   * You can still whisper particular Peer's in a group conversation.
+#. We added the option of public sharing of ID's (powered by Twitter). PeerJS is set up in such a way that you must know another Peer's ID in order to connect to them. This is great for private chat, but we wanted a public feature.
+
+   * We added the option to share your ID with the general public. We set up a bot to tweet your ID and a topic of your choice. The Tweets are displayed in the app so you can quickly connect to anonymous Peers to chat about topics you find interesting.
+#. We also added the option to save your chat log (powered by EverNote). Similar to the Twitter bot, we can automate posting of chats to Evernote. 
+#. We wanted to add encryption, but we found out via research that WebRTC already implements some forms of encryption (AES encryption) plus we were running out of time :o
+
+HTML and CSS
+~~~~~~~~~~~~
+
+* We used HTML and CSS to style our web application and make it look awesome.
+
+Python
+~~~~~~
+
+.. Shell can add more details on this aspect.
+
+Python is used to power the Twitter and Evernote bot. We also used Flask and Heroku for this.
+
+Demo
+----
+
+We will now Demo the App
+
+Distributed Aspects
+-------------------
+
+* P2P Communication - lots of one-to-one connections set up between Peers allows the addition or removal of individual Peers. No central server.
+* Use of CloudServer to broker connections
+* Use of Twitter as "free broadcasting medium" for Topic/ID pairs.
+* Use of Evernote as "free storage" for chat logs.
+* Use of Heroku to host Twitter/Evernote Bot.
+
+What we Learned
+---------------
+
+* Learned a lot about Javascript (as well as HTML and CSS)
+* Learned how to make bots to tweet etc.
+* Learned how to make javascript and python talk to eachother.
+* Learned about a up and rising area of computerscience (WebRTC)
+* Made a fun little chatapp
+
+Resources
+---------
+
+http://www.webrtc.org/
+
+http://peerjs.com/
+
+http://nodejs.org/
+
+https://twitter.com/
+
+http://evernote.com/
+
+http://stackoverflow.com/
