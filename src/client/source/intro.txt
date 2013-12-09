@@ -1,7 +1,6 @@
 Introduction
 ==============
 
-
 Produced by Shell Yan, Brian Gathright, and Salman Khan
 
 Goal
@@ -13,10 +12,12 @@ Process
 -------
 
 #. Set up a Trello Board and GitHub repo. 
+
    * Trello: https://trello.com/b/DOC7ONim/chatroom
    * GitHub: https://github.com/shellyan/cs-339-chatapp/
 #. Researched P2P logic (What is P2P, how does it work etc.)
 #. Considered creating Python P2P built from scratch
+
    * But... then we realized we had very little time.
 #. Looked into javascript ideas, discovered WebRTC through research!
 
