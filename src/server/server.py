@@ -45,11 +45,9 @@ class Search(Resource):
             if result[0]:
                 for tweet in result:
                     topic = tweet.text[:tweet.text.find('PeerID')]
-                    return topic ,201
+                    return topic,201
         except:
             pass
-
-
         return topic, 201
 
 
