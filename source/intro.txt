@@ -1,8 +1,6 @@
 Introduction
 ==============
 
-Produced by Shell Yan, Brian Gathright, and Salman Khan
-
 Goal
 ----
 
@@ -75,7 +73,7 @@ Python
 
 .. Shell can add more details on this aspect.
 
-Python is used to power the Twitter and Evernote bot. We also used Flask and Heroku for this.
+* Python is used to power the Twitter and Evernote bot. We also used Flask and Heroku for this.
 
 Demo
 ----

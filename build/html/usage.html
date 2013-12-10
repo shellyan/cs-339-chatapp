@@ -72,14 +72,17 @@
 <p>Our server provides service of posting tweet and delete tweet,  saving chat history on <a class="reference external" href="http://evernote.com/">Evernote</a>
 and a generated shared link. It uses <a class="reference external" href="http://flask.pocoo.org/">Flask</a> as mainframe and powers
 <a class="reference external" href="http://flask-restful.readthedocs.org/en/latest/index.html">flask-restful</a> as extension.</p>
-<p><strong>Host server app on heroku</strong></p>
+<div class="section" id="host-server-app-on-heroku">
+<h3>Host server app on heroku<a class="headerlink" href="#host-server-app-on-heroku" title="Permalink to this headline">¶</a></h3>
 <p>Simply follow the documentaion on <a class="reference external" href="https://devcenter.heroku.com/articles/getting-started-with-python">https://devcenter.heroku.com/articles/getting-started-with-python</a>. Make sure you
 have virtual environment acitivated.</p>
+</div>
 </div>
 <div class="section" id="generate-sphinx-document">
 <h2>Generate Sphinx document<a class="headerlink" href="#generate-sphinx-document" title="Permalink to this headline">¶</a></h2>
 <p>We embedded sphinx documentation in our client app.</p>
-<p><strong>Customized theme</strong></p>
+<div class="section" id="customized-theme">
+<h3>Customized theme<a class="headerlink" href="#customized-theme" title="Permalink to this headline">¶</a></h3>
 <p>We used customized theme <a class="reference external" href="https://github.com/mitsuhiko/flask-sphinx-themes">Flask</a>.</p>
 <div class="highlight-python"><pre>This repository contains sphinx styles for Flask and Flask related
 projects.  To use this style in your Sphinx documentation, follow
@@ -110,8 +113,9 @@ The following options exist for the flask_small theme:
    github_fork = ''             repository name on github for the
                                 "fork me" badge</pre>
 </div>
+</div>
 <div class="section" id="github-pages-integration">
-<h3><strong>Github Pages Integration</strong><a class="headerlink" href="#github-pages-integration" title="Permalink to this headline">¶</a></h3>
+<h3>Github Pages Integration<a class="headerlink" href="#github-pages-integration" title="Permalink to this headline">¶</a></h3>
 <p>In order to put sphinx documentation on <a class="reference external" href="http://pages.github.com/">Github Pages</a>, you need to install
 <a class="reference external" href="https://github.com/michaeljones/sphinx-to-github">sphinx-to-github</a>. Basically it renames [_folder name]
 to [folder name], because Github Pages ignores [_folder name] by default.</p>
@@ -164,9 +168,13 @@ git push</pre>
   <ul>
 <li><a class="reference internal" href="#">Usage</a><ul>
 <li><a class="reference internal" href="#client-app">Client app</a></li>
-<li><a class="reference internal" href="#restful-server">Restful Server</a></li>
+<li><a class="reference internal" href="#restful-server">Restful Server</a><ul>
+<li><a class="reference internal" href="#host-server-app-on-heroku">Host server app on heroku</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#generate-sphinx-document">Generate Sphinx document</a><ul>
-<li><a class="reference internal" href="#github-pages-integration"><strong>Github Pages Integration</strong></a></li>
+<li><a class="reference internal" href="#customized-theme">Customized theme</a></li>
+<li><a class="reference internal" href="#github-pages-integration">Github Pages Integration</a></li>
 </ul>
 </li>
 </ul>

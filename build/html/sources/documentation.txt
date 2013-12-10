@@ -6,7 +6,7 @@
 cs-339-chatapp documentation
 ============================================
 
-
+Produced by Shell Yan, Brian Gathright, and Salman Khan
 
 .. toctree::
    intro
