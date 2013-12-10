@@ -71,7 +71,9 @@ function searchTopic(id){
 function connect(c) {
     var conn = c;
     $('#container').append('Now chatting with ' + conn.peer + '<br>');
-    searchTopic(conn.peer);
+    if($('#chat_title').text().indexOf('Chat')>0){
+        searchTopic(conn.peer);
+    }
 	notifyOthers(c.peer);
 	addConns(conn);
 	
